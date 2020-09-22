@@ -1,0 +1,25 @@
+import React from 'react';
+import './Header.css'
+import SearchIcon from '@material-ui/icons/Search'
+import {Avatar} from '@material-ui/core'
+import { useDataLayerValue } from '../DataLayer';
+import SearchBar from './SearchBar'
+
+function Header(){
+
+    const[  {user,playlists,lists},dispatch] = useDataLayerValue();
+    
+    return(
+        <div className="Header">
+           
+           <SearchBar />
+
+            <div className="Header_right">
+                <Avatar src={user?.images[0]?.url} alt={user}/>
+                <h4>{user?.display_name}</h4>
+            </div>
+        </div>
+    )
+}
+
+export default Header;
